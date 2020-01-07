@@ -1,0 +1,145 @@
+/* 
+-------------------------
+- Project Color Palette -
+------------------------- 
+
+#1c93db		rgb( 28, 147, 219) 
+#6699cc 	rgb(102, 153, 204) 
+#192bc2 	rgb( 25,  43, 194) 
+#d9f0ff 	rgb(217, 240, 255) 
+#a3d5ff 	rgb(163, 213, 255) 
+
+*/
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body {
+	background-color: rgba(28, 147, 219, .76);
+}
+
+/* Container - Used for aligning content */
+
+container {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+}
+
+/* Stage bar / breadcrumb trail */
+
+nav {
+	border-bottom: 1px solid black;
+}
+
+.breadcrumb {
+	list-style: none;
+	overflow: hidden;
+	padding: 0;
+	border-radius: 0;
+	background-color: #192bc2;
+	margin-bottom: 0;
+	flex: 0 1 auto;
+}
+
+.breadcrumb li {
+	float: left;
+	transition: all 1s cubic-bezier(.65, .05, .36, 1);
+	flex: unset;
+}
+
+.breadcrumb li.active {
+	flex: auto;
+}
+
+.breadcrumb li.active a {
+	background: #192bc2;
+}
+.breadcrumb li.active a:after {
+	border-left-color: #192bc2 !important;
+}
+
+.breadcrumb li:last-child {
+	white-space: pre;
+}
+
+.breadcrumb li a {
+	color: white;
+	text-decoration: none;
+	padding: .5em 0 .7em 4em;
+	background: #69c;
+	position: relative;
+	display: block;
+	float: left;
+	width: 100%;
+	font-variant: small-caps;
+}
+
+.breadcrumb li a:after {
+	content: " ";
+	display: block;
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-bottom: 50px solid transparent;
+	border-left: 30px solid #69c;
+	position: absolute;
+	top: 50%;
+	margin-top: -50px;
+	left: 100%;
+	z-index: 2;
+}
+
+.breadcrumb li a:before {
+	content: " ";
+	display: block;
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+   /* Go big on the size, and let overflow hide */
+	border-bottom: 50px solid transparent;
+	border-left: 30px solid transparent;
+	position: absolute;
+	top: 50%;
+	margin-top: -50px;
+	margin-left: 1px;
+	left: 100%;
+	z-index: 1;
+}
+
+.breadcrumb li:first-child a {
+	padding-left: 10px;
+}
+
+.breadcrumb li:nth-child(2) a:after {
+	border-left-color: #69c;
+}
+
+/* App */
+
+main {
+	background-color: #d9f0ff ;
+	margin: 0 auto;
+	width: 1200px;
+	flex: 1 1 auto;
+
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+}
+
+/* Footer */
+
+footer {
+	flex: 0 1 24px;
+	background-color: black;
+}
+
+footer p, footer a {
+	margin: 0;
+	color: grey;
+	font-variant: small-caps;
+	line-height: 20px;
+	margin: 0 0.25em;
+}

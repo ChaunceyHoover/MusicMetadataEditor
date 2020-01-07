@@ -8,7 +8,7 @@ require('dotenv').config(); // load .env config
 
 // TODO: Consider using bcryptjs for login page?
 
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
 // Set view engine to pug
 server.set('views', path.join(__dirname, 'views'));
