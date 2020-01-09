@@ -9,24 +9,37 @@ html(lang="en")
 		link(rel="stylesheet", href="/css/bootstrap.min.css")
 		link(rel="stylesheet", href="/css/main.css")
 	body
-		container
-			nav
-				ul.breadcrumb
-					li.active#input
-						a(href="#") Input
-					li#process
-						a(href="#") Process
-					li#output
-						a(href="#") Output     
+		nav
+			ul.breadcrumb
+				li.active#input
+					a(href="#") Input
+				li#process
+					a(href="#") Process
+				li#output
+					a(href="#") Output     
 
-			main
-				h1.display-4.text-center.small-caps Files Available
+		main
+			section
+				h1.display-4.text-center Select File(s) to Process
+				#files-title-row
+					label.checkbox-label
+						input(type="checkbox")
+						span.checkbox-custom
+					h3 Files Availalbe
+				#file-list
+					//- Test list to make sure it overflows page
+					each val, index in {1: 'awoiefjaiowefj',2: 'awoiefjaiowefj',3: 'awoiefjaiowefj',4: 'awoiefjaiowefj',5: 'awoiefjaiowefj',6: 'awoiefjaiowefj',7: 'awoiefjaiowefj',8: 'awoiefjaiowefj',9: 'awoiefjaiowefj',10: 'awoiefjaiowefj',11: 'awoiefjaiowefj',12: 'awoiefjaiowefj',13: 'awoiefjaiowefj',14: 'awoiefjaiowefj',15: 'awoiefjaiowefj',16: 'awoiefjaiowefj',17: 'awoiefjaiowefj',18: 'awoiefjaiowefj',19: 'awoiefjaiowefj',20: 'awoiefjaiowefj',21: 'awoiefjaiowefj',22: 'awoiefjaiowefj',23: 'awoiefjaiowefj',24: 'awoiefjaiowefj',25: 'awoiefjaiowefj',26: 'awoiefjaiowefj',27: 'awoiefjaiowefj',28: 'awoiefjaiowefj',29: 'awoiefjaiowefj',30: 'awoiefjaiowefj',31: 'awoiefjaiowefj',32: 'awoiefjaiowefj',33: 'awoiefjaiowefj',34: 'awoiefjaiowefj',35: 'awoiefjaiowefj',36: 'awoiefjaiowefj',37: 'awoiefjaiowefj',38: 'awoiefjaiowefj',39: 'awoiefjaiowefj',40: 'awoiefjaiowefj',41: 'awoiefjaiowefj',42: 'awoiefjaiowefj',43: 'awoiefjaiowefj',44: 'awoiefjaiowefj',45: 'awoiefjaiowefj',46: 'awoiefjaiowefj',47: 'awoiefjaiowefj',48: 'awoiefjaiowefj',49: 'awoiefjaiowefj',50: 'awoiefjaiowefj',51: 'awoiefjaiowefj',52: 'awoiefjaiowefj',53: 'awoiefjaiowefj',54: 'awoiefjaiowefj',55: 'awoiefjaiowefj',56: 'awoiefjaiowefj',57: 'awoiefjaiowefj',58: 'awoiefjaiowefj',59: 'awoiefjaiowefj',60: 'awoiefjaiowefj',61: 'awoiefjaiowefj',62: 'awoiefjaiowefj',63: 'awoiefjaiowefj',64: 'awoiefjaiowefj',65: 'awoiefjaiowefj',66: 'awoiefjaiowefj',67: 'awoiefjaiowefj',68: 'awoiefjaiowefj',69: 'awoiefjaiowefj',70: 'awoiefjaiowefj',71: 'awoiefjaiowefj',72: 'awoiefjaiowefj',73: 'awoiefjaiowefj',74: 'awoiefjaiowefj',75: 'awoiefjaiowefj',76: 'awoiefjaiowefj',77: 'awoiefjaiowefj',78: 'awoiefjaiowefj',79: 'awoiefjaiowefj',80: 'awoiefjaiowefj',81: 'awoiefjaiowefj',82: 'awoiefjaiowefj',83: 'awoiefjaiowefj',84: 'awoiefjaiowefj',85: 'awoiefjaiowefj',86: 'awoiefjaiowefj',87: 'awoiefjaiowefj',88: 'awoiefjaiowefj',89: 'awoiefjaiowefj',90: 'awoiefjaiowefj',91: 'awoiefjaiowefj',92: 'awoiefjaiowefj',93: 'awoiefjaiowefj',94: 'awoiefjaiowefj',95: 'awoiefjaiowefj',96: 'awoiefjaiowefj',97: 'awoiefjaiowefj',98: 'awoiefjaiowefj',99: 'awoiefjaiowefj'}
+						.available-file
+							label.checkbox-label
+								input(type="checkbox")
+								span.checkbox-custom
+							span= `0${index} - The Queenstons - Revenge of Doctor Q - ${val}.mp3`
 
-			footer.d-flex.justify-content-between
-				p © Chauncey Hoover 2020
-				a(href="https://github.com/ChaunceyHoover/MusicMetadataEditor", target="_blank")
-					img.d-inline(src="/img/GitHub-Mark-Light-32px.png", style="width:16px;height:16px;") 
-					p.d-inline View on GitHub
+		footer.d-flex.justify-content-between
+			p © Chauncey Hoover 2020
+			a(href="https://github.com/ChaunceyHoover/MusicMetadataEditor", target="_blank")
+				img.d-inline(src="/img/GitHub-Mark-Light-32px.png", style="width:16px;height:16px;") 
+				p.d-inline View on GitHub
 
 		script(src="/js/jquery-3.4.1.min.js")
 		script(src="/js/popper.min.js")
