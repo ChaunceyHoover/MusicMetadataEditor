@@ -120,6 +120,7 @@ nav {
 main {
 	flex: 1 1 auto;
 	position: relative;
+	height: calc(100% - 68px);
 }
 
 main > section {
@@ -128,6 +129,7 @@ main > section {
 	background-color: #d9f0ff;
 	border-left: 2px solid black;
 	border-right: 2px solid black;
+	overflow-y: auto;
 }
 
 main section > h1 {
@@ -136,7 +138,6 @@ main section > h1 {
 
 #file-list {
 	margin: 0 auto;
-	overflow-y: scroll;
 }
 
 #file-list > *, #files-title-row {
