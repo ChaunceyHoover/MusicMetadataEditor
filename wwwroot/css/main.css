@@ -1,12 +1,320 @@
-/*
-	-------------------------
-	- Project Color Palette -
-	-------------------------
-	
-	#1c93db		rgb( 28, 147, 219)
-	#6699cc		rgb(102, 153, 204)
-	#192bc2		rgb( 25,  43, 194)
-	#d9f0ff		rgb(217, 240, 255)
-	#a3d5ff		rgb(163, 213, 255)
+/* 
+-------------------------
+- Project Color Palette -
+------------------------- 
+
+#1c93db		rgb( 28, 147, 219) 
+#6699cc 	rgb(102, 153, 204) 
+#192bc2 	rgb( 25,  43, 194) 
+#d9f0ff 	rgb(217, 240, 255) 
+#a3d5ff 	rgb(163, 213, 255) 
+
 */
 
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	display: flex;
+	flex-flow: column;
+}
+body {
+	background-color: rgba(28, 147, 219, .76);
+}
+
+body, p, h1, h2, h3, h4, h5, h6, a, span {
+	font-variant: small-caps;
+}
+
+/* Stage bar / breadcrumb trail / navbar */
+
+nav {
+	border-bottom: 1px solid black;
+}
+
+.breadcrumb {
+	list-style: none;
+	overflow: hidden;
+	padding: 0;
+	border-radius: 0;
+	background-color: #192bc2;
+	margin-bottom: 0;
+	flex: 0 1 auto;
+}
+.breadcrumb li {
+	float: left;
+	transition: all 1s cubic-bezier(.65, .05, .36, 1);
+	flex: unset;
+}
+.breadcrumb li.active {
+	flex: auto;
+}
+.breadcrumb li.active a {
+	background: #192bc2;
+}
+.breadcrumb li.active a:after {
+	border-left-color: #192bc2 !important;
+}
+.breadcrumb li:last-child {
+	white-space: pre;
+}
+.breadcrumb li a {
+	color: white;
+	text-decoration: none;
+	padding: .5em 0 .7em 4em;
+	background: #69c;
+	position: relative;
+	display: block;
+	float: left;
+	width: 100%;
+}
+.breadcrumb li a:after {
+	content: " ";
+	display: block;
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-bottom: 50px solid transparent;
+	border-left: 30px solid #69c;
+	position: absolute;
+	top: 50%;
+	margin-top: -50px;
+	left: 100%;
+	z-index: 2;
+}
+.breadcrumb li a:before {
+	content: " ";
+	display: block;
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+   /* Go big on the size, and let overflow hide */
+	border-bottom: 50px solid transparent;
+	border-left: 30px solid black;
+	position: absolute;
+	top: 50%;
+	margin-top: -50px;
+	margin-left: 1px;
+	left: 100%;
+	z-index: 1;
+}
+.breadcrumb li:first-child a {
+	padding-left: 10px;
+}
+.breadcrumb li:nth-child(2) a:after {
+	border-left-color: #69c;
+}
+
+/* App content (between nav & footer) */
+
+main {
+	flex: 1 1 auto;
+	position: relative;
+	height: calc(100% - 68px);
+}
+
+/* Needed a wrapper to do some CSS magic */
+main > section {
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: column;
+	overflow: hidden;
+	position: relative;
+}
+
+/* Each section/screen/stage of the app */
+main > section > * {
+	width: 1200px;
+	background-color: #d9f0ff;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+	transition: all 1s cubic-bezier(.65, .05, .36, 1);
+	position: absolute;
+	height: 100%;
+	display: flex;
+	flex-flow: column;
+}
+
+/* Starting positions of each stage/selection/screen */
+main > section > #input-section {
+	left: 0%;
+}
+main > section > #process-section {
+	left: 100%;
+}
+main > section > #output-section {
+	left: 200%;
+}
+
+/* Title in each stage */
+main section > h1 {
+	margin: 0 0 1em 0;
+}
+
+/* Content in each stage */
+main section .stage-content {
+	display: flex;
+	flex-direction: column;
+	height: calc(100% - 108px - 42px); /* 100% - title height - button row height */
+}
+
+/* Action button row in each stage */
+main section .button-row {
+	flex: 0 1 42px;
+	padding: 0.5em;
+	border-top: 1px solid black;
+}
+
+/**** INPUT STAGE ****/
+
+/* Flex layout to make only the file list have a scrollbar, as needed */
+main section #input-instructions {
+	flex: 0 1 108px;
+}
+main section #files-title-row {
+	flex: 0 1 36px;
+}
+main section #file-list {
+	flex: 0 1 auto;
+}
+
+/* Formatting the list */
+#file-list {
+	margin: 0 auto;
+	overflow-y: auto;
+}
+#file-list > *, #files-title-row {
+	padding: 0 .25em;
+}
+#file-list > *:nth-child(even) {
+	background-color: rgba(163, 213, 255, .24);
+}
+#file-list > *:nth-child(odd) {
+	background-color: rgba(163, 213, 255, .76);
+}
+
+/* title row */
+#files-title-row {
+	background-color: #1c93db;
+	text-align: center;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+#files-title-row > h3 {
+	color: white;
+	display: table-cell;
+}
+.available-file, #files-title-row {
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+
+/* each row, representing a file */
+.available-file > *:first-child, #files-title-row > *:first-child {
+	width: 64px;
+}
+.available-file > *:not(:first-child), #files-title-row > *:not(:first-child) {
+	width: 1126px;
+}
+.available-file span {
+	vertical-align: middle;
+	display: table-cell
+}
+
+/* custom checkboxes */
+.checkbox-label {
+    display: inline-block;
+    position: relative;
+    margin: .25em;
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 12px;
+    height: 18px;
+    width: 18px;
+    clear: both;
+}
+.checkbox-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkbox-label .checkbox-custom {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    border: 2px solid #FFFFFF;
+}
+.checkbox-label input:checked ~ .checkbox-custom {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    -webkit-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity:1;
+    border: 2px solid #FFFFFF;
+}
+.checkbox-label .checkbox-custom::after {
+    position: absolute;
+    content: "";
+    left: 12px;
+    top: 12px;
+    height: 0px;
+    width: 0px;
+    border-radius: 5px;
+    border: solid #009BFF;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(0deg) scale(0);
+    -ms-transform: rotate(0deg) scale(0);
+    transform: rotate(0deg) scale(0);
+    opacity:1;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+}
+.checkbox-label input:checked ~ .checkbox-custom::after {
+  -webkit-transform: rotate(45deg) scale(1);
+  -ms-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+  opacity:1;
+  left: 8px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid #009BFF;
+  border-width: 0 2px 2px 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/* Footer - "Copyright" & GitHub */
+
+footer {
+	flex: 0 1 24px;
+	background-color: black;
+}
+footer p, footer a {
+	margin: 0;
+	color: grey;
+	line-height: 20px;
+	margin: 0 0.25em;
+}
+
+/* Random classes I may or may not use */
+
+.small-caps {
+	font-variant: small-caps;
+}
