@@ -2,6 +2,12 @@ const input = $('#input');
 const process = $('#process');
 const output = $('#output');
 
+const check_all = $('#check-all');
+
+/**
+ * Sets the current active breadcrumb in the navbar trail 
+ * @param {int} stage 0 = input, 1 = process, 2 = output
+ */
 function setStage(stage) {
 	let elements = [input, process, output];
 	elements.forEach(function(element) {
@@ -10,6 +16,19 @@ function setStage(stage) {
 	elements[stage - 1].toggleClass('active', true);
 }
 
-input.hover(function() { setStage(1); });
-process.hover(function() { setStage(2); });
-output.hover(function() { setStage(3); });
+let isInternalChange = false;
+
+function mainBoxChecked() {
+	if (!isInternalChange)
+		$('.file-checkbox').prop('checked', check_all.prop('checked'));
+}
+
+function fileChecked(id) {
+	if (!$(`#f${id}`).prop('checked')) {
+		isInternalChange = true; // prevents `mainBoxChecked` from being fired
+		check_all.prop('checked', false);
+		isInternalChange = false;
+	}
+}
+
+check_all.change(mainBoxChecked)
