@@ -41,10 +41,14 @@ html(lang="en")
 						button(type="button", onclick="setStage(1)").btn.btn-primary Next
 				
 				//- PROCESSING STAGE - Second screen -//
+				//- https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2 - API list
+				//- https://wiki.multimedia.cx/index.php?title=FFmpeg_Metadata#MP3 - Complete tag list supported by ID3v1-ID3v2.4
+				
 				#process-section
 					h2#process-title.text-center.hide-text-overflow 05 - The Queenstons - Revenge of Doctor Q - Everything You Wanted.mp3 
 					.stage-content
 						p haha u cannot stop me css
+						// Artist, Album, Title, Track (ex: "5/8"), Disc (for multi-disc albums), Label, Date (eg: "2002")
 					.button-row.d-flex.justify-content-around
 						button(type="button", onclick="setStage(0)").btn.btn-primary Previous
 						button(type="button", onclick="setStage(2)").btn.btn-primary Next
