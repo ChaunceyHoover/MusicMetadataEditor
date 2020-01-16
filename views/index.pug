@@ -20,6 +20,7 @@ html(lang="en")
 
 		main
 			section
+				//- INPUT STAGE - First screen -//
 				#input-section
 					h1#input-instructions.display-4.text-center Select File(s) to Process
 					.stage-content
@@ -39,14 +40,16 @@ html(lang="en")
 						button(type="button").btn.btn-primary Upload
 						button(type="button", onclick="setStage(1)").btn.btn-primary Next
 				
+				//- PROCESSING STAGE - Second screen -//
 				#process-section
-					h1#input-instructions.display-4.text-center Hello there!
+					h2#process-title.text-center.hide-text-overflow 05 - The Queenstons - Revenge of Doctor Q - Everything You Wanted.mp3 
 					.stage-content
 						p haha u cannot stop me css
 					.button-row.d-flex.justify-content-around
 						button(type="button", onclick="setStage(0)").btn.btn-primary Previous
 						button(type="button", onclick="setStage(2)").btn.btn-primary Next
 				
+				//- OUTPUT STAGE - Last screen -//
 				#output-section
 					h1#input-instructions.display-4.text-center Good-bye :(
 					.stage-content

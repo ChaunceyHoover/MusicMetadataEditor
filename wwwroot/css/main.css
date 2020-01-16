@@ -148,9 +148,20 @@ main > section > #output-section {
 	left: 200%;
 }
 
+/* Properly scale each stage dynamically */
+main section div h1, main section div h2 {
+	flex: 0 1 auto;
+}
+main section div .stage-content {
+	flex: 1 1 auto;
+}
+main section div .button-row {
+	flex: 0 1 auto;
+}
+
 /* Title in each stage */
-main section > h1 {
-	margin: 0 0 1em 0;
+main section div > h1, main section div > h2 {
+	margin: 0 0 0.5em 0;
 }
 
 /* Content in each stage */
@@ -168,17 +179,6 @@ main section .button-row {
 }
 
 /**** INPUT STAGE ****/
-
-/* Flex layout to make only the file list have a scrollbar, as needed */
-main section #input-instructions {
-	flex: 0 1 108px;
-}
-main section #files-title-row {
-	flex: 0 1 36px;
-}
-main section #file-list {
-	flex: 0 1 auto;
-}
 
 /* Formatting the list */
 #file-list {
@@ -317,4 +317,10 @@ footer p, footer a {
 
 .small-caps {
 	font-variant: small-caps;
+}
+
+.hide-text-overflow {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
