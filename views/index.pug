@@ -12,11 +12,11 @@ html(lang="en")
 		nav
 			ul.breadcrumb
 				li.active#input
-					a(href="#") Input
+					a(href="#", onclick="setStage(0)") Input
 				li#process
-					a(href="#") Process
+					a(href="#", onclick="setStage(1)") Process
 				li#output
-					a(href="#") Output     
+					a(href="#", onclick="setStage(2)") Output     
 
 		main
 			section
@@ -39,6 +39,9 @@ html(lang="en")
 						button(type="button").btn.btn-primary Upload
 						button(type="button", onclick="setStage(1)").btn.btn-primary Next
 				
+				//- PROCESSING STAGE - Second screen -//
+				//- https://wiki.multimedia.cx/index.php?title=FFmpeg_Metadata#MP3 - Complete tag list supported by ID3v1-ID3v2.4
+
 				#process-section
 					h1#input-instructions.display-4.text-center Hello there!
 					.stage-content
