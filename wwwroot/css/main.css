@@ -115,7 +115,8 @@ main {
 
 /* Needed a wrapper to do some CSS magic */
 main > section {
-	width: 1200px;
+	min-width: 800px;
+	max-width: 1200px;
 	height: 100%;
 	margin: 0 auto;
 	display: flex;
@@ -126,7 +127,8 @@ main > section {
 
 /* Each section/screen/stage of the app */
 main > section > * {
-	width: 1200px;
+	min-width: 800px;
+	max-width: 1200px;
 	background-color: #d9f0ff;
 	border-left: 2px solid black;
 	border-right: 2px solid black;
